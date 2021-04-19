@@ -37,33 +37,33 @@ const Home2 = ()=> {
         console.log({astStyle})
     }
     // ----------------------------------------------------------------condition contract--------------------------------------------
-    const [Name,setName] = useState(null)                       /////////////////Name-Surname
+    const [Name,setName] = useState('')                       /////////////////Name-Surname
     const [alertBoxName,setAlertBoxName] = useState(false)  
     const [NameBorder,setNameBorder] = useState('inputTextB')
     function CheckName(val){
-        if(val.target.value.length <= 0)
-        {setAlertBoxName(true); setNameBorder('inputTextB-alert')}
-        else{setAlertBoxName(false); setNameBorder('inputTextB')}
+        if(Name.length <= 0)
+        {setAlertBoxName(true); setNameBorder('inputTextB-alert'); return true}
+        else{setAlertBoxName(false); setNameBorder('inputTextB');return false}
     }
     function getName(val){setName(val.target.value)}
 
-    const [Email,setEmail] = useState(null)                     /////////////////Email
+    const [Email,setEmail] = useState('')                     /////////////////Email
     const [alertBoxEmail,setAlertBoxEmail] = useState(false)   
     const [EmailBorder,setEmailBorder] = useState('inputTextB')
     function CheckEmail(val){
-        if(val.target.value.length <= 0 || !val.target.value.includes('@') || !(val.target.value.includes('com')||val.target.value.includes('co.th')))
-        {setAlertBoxEmail(true); setEmailBorder('inputTextB-alert')}
-        else{setAlertBoxEmail(false); setEmailBorder('inputTextB')}
+        if(Email.length <= 0 || !Email.includes('@') || !(Email.includes('com')||val.target.value.includes('co.th')))
+        {setAlertBoxEmail(true); setEmailBorder('inputTextB-alert');return true}
+        else{setAlertBoxEmail(false); setEmailBorder('inputTextB');return false}
     }
     function getEmail(val){setEmail(val.target.value)}
 
     const [alertBoxPhone,setAlertBoxPhone] = useState(false)  /////////////////PhoneNumber
     const [PhoneBorder,setPhoneBorder] = useState('inputTextB')
-    const [PhoneNumber,setPhoneNumber] = useState(null)
+    const [PhoneNumber,setPhoneNumber] = useState('')
     function CheckPhone(val){
-        if(val.target.value.length != 10)
-        {setAlertBoxPhone(true); setPhoneBorder('inputTextB-alert')}
-        else{setAlertBoxPhone(false); setPhoneBorder('inputTextB')}
+        if(PhoneNumber.length != 10)
+        {setAlertBoxPhone(true); setPhoneBorder('inputTextB-alert');return true}
+        else{setAlertBoxPhone(false); setPhoneBorder('inputTextB');return false}
     }
     function NumberOnly(val){
         const re = /^[0-9\b]+$/;
@@ -72,28 +72,44 @@ const Home2 = ()=> {
           }
     }
 
-    const [Topic,setTopic] = useState(null)                 /////////////////Topic
+    const [Topic,setTopic] = useState('')                 /////////////////Topic
     const [alertBoxTopic,setAlertBoxTopic] = useState(false)  
     const [TopicBorder,setTopicBorder] = useState('inputTextB')
     function CheckTopic(val){
-        if(val.target.value.length <= 0)
-        {setAlertBoxTopic(true); setTopicBorder('inputTextB-alert')}
-        else{setAlertBoxTopic(false); setTopicBorder('inputTextB')}
+        if(Topic.length <= 0)
+        {setAlertBoxTopic(true); setTopicBorder('inputTextB-alert');return true}
+        else{setAlertBoxTopic(false); setTopicBorder('inputTextB');return false}
     }
     function getTopic(val){setTopic(val.target.value)}
 
-    const [Textbox,setTextbox] = useState(null)                /////////////////Textbox 
+    const [Textbox,setTextbox] = useState('')                /////////////////Textbox
     const [alertBoxTextbox ,setAlertBoxTextbox ] = useState(false)  
     const [TextboxBorder,setTextboxBorder] = useState('inputTextBLong')
     function CheckTextbox (val){
-        if(val.target.value.length <= 0)
-        {setAlertBoxTextbox (true); setTextboxBorder('inputTextBLong-alert')}
-        else{setAlertBoxTextbox(false); setTextboxBorder('inputTextBLong')}
+        if(Textbox.length <= 0)
+        {setAlertBoxTextbox (true); setTextboxBorder('inputTextBLong-alert');return true}
+        else{setAlertBoxTextbox(false); setTextboxBorder('inputTextBLong');return false}
     }
     function getTextbox(val){setTextbox(val.target.value)}
 
-    function CheckAll(){
-        CheckName(Name);
+    const [sumitText,setSumitText] = useState('Not summit')
+    function checkSumit(){
+        var a = CheckName();
+        var b = CheckEmail();
+        var c = CheckPhone();
+        var d = CheckTopic();
+        var e = CheckTextbox();
+        if(a||b||c||d||e){
+            setSumitText('summit false!')
+        }
+        else{
+            setSumitText('summit success!')
+            setName('')
+            setEmail('')
+            setPhoneNumber('')
+            setTopic('')
+            setTextbox('')
+        }
     }
     // ----------------------------------------------------------------condition contract End--------------------------------------------
     
@@ -177,7 +193,8 @@ const Home2 = ()=> {
                         {alertBoxTextbox?<p className='alert-text'>กรุณาพิมพ์เนื้อหา</p>:null}
                         
                         
-                        <button className='buttonSumit' onClick={CheckAll}>ส่ง</button>
+                        <button className='buttonSumit' onMouseUp={checkSumit}>ส่ง</button>
+                        <p className='alert-text'>{sumitText}</p>    
                 </div>
                 </div>
                 </div>
