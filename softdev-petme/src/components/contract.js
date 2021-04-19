@@ -184,7 +184,7 @@ const Home2 = ()=> {
                 {/* --------google map------- */}
                 <div style={{height: '300px', width: '100%' }}>
                     <GoogleMapReact
-                        bootstrapURLKeys={{ key:'AIzaSyArHsxljBsVldhX-DXQWFenKBhvW9K05DE'}}
+                        bootstrapURLKeys={{ key:''}}
                         defaultCenter={{ lat: 13.727732292542216, lng: 100.77078854813402 }}
                         defaultZoom={18}
                     >
