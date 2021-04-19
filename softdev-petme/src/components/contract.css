@@ -164,9 +164,30 @@
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
-    
-    
   }
+  .inputTextB-alert{
+    margin-top: 30px;
+    margin-left: 30px;
+    width: 320px;
+    height: 60px;
+    border-radius: 10px;
+    border: 1px solid red;
+    background-color: #F3F4F4;
+    padding: 10px;
+    font-family: 'Kanit';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+  }
+  .alert-text{
+    padding-left: 10px;
+    margin-left: 30px;
+    font-family: 'Kanit';
+    font-style: normal;
+    font-weight: normal;
+    color: red;
+  }
+
   .inputTextBLong{
     margin-top: 30px;
     margin-left: 30px;
@@ -182,7 +203,25 @@
     font-size: 18px;
     box-sizing: border-box;
     resize: none;
-    overflow: auto;
+    
+  }
+
+  .inputTextBLong-alert{
+    margin-top: 30px;
+    margin-left: 30px;
+    width: 95%;
+    height: 197px;
+    border-radius: 10px;
+    border: 1px solid red;
+    background-color: #F3F4F4;
+    padding: 10px;
+    font-family: 'Kanit';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    box-sizing: border-box;
+    resize: none;
+    
   }
 
   .buttonSumit{
@@ -210,8 +249,9 @@
     color: rgb(207, 207, 207);
     transition: 0.2s;
     border-color: none;
-    
   }
+  
+    
   /* --------googlemap---------- */
   .pointText{
     font-family: 'Kanit';
