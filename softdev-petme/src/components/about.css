@@ -89,7 +89,7 @@
     font-family: 'Kanit';
     font-style: normal;
     font-weight: normal;
-    font-size: 2.5vw;
+    font-size: 48px;
   }
 
   .TeamMemberGrid{
@@ -101,7 +101,7 @@
 
   /* ----------memberBox-------------- */
   .memberBox{
-    margin:2vw;
+    margin:2%;
     width: 30%;
     justify-content: center;
     align-items: center;
@@ -121,8 +121,6 @@
     height: 60%;
   }
   .memberName-Box{
-    width: 100%;
-    height: 30%;
     padding-top: 5%;
     padding-bottom: 5%;
     border-radius: 10px;
@@ -135,7 +133,7 @@
     font-family: 'Kanit';
     font-style: normal;
     font-weight: normal;
-    font-size: 1.5vw;
+    font-size: 18px;
     text-align: center;
   }
   

@@ -1,6 +1,8 @@
-import './about.css'
+import './contract.css'
 import React,{useState, useEffect} from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import GoogleMapReact from 'google-map-react';
 
 
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -19,17 +21,11 @@ import Mail_icon_src from './img/mail_icon.png'
 
 import about_background_src from './img/welcome_dog.png' //need to edit
 
-import TTTPhoto from './img/TTT.jpg'
-import MMMPhoto from './img/MMM.jpg'
-import AAAPhoto from './img/AAA.jpg'
-import BBBPhoto from './img/BBB.jpg'
+
 
 library.add(fas, fab, far);
 
-
-
 const Home2 = ()=> {
-
     const [classStyle, setClassStyle] = useState('menu-header')
     const [astStyle, setAstStyle] = useState('ast')
 
@@ -39,20 +35,20 @@ const Home2 = ()=> {
         classStyle == 'menu-header'?setClassStyle('menu-header active'):setClassStyle('menu-header')
         classStyle == 'menu-header active'?setAstStyle('ast-fullbg'):setAstStyle('ast')
         console.log({astStyle})
+
+    
     }
 
     return (
         <div>
-            
             <nav>
-            
                 <li class='menu'>               
                     <div class = 'menu-logo'><img src={Logo_icon_src} class='menu-logo-img'/></div>
                     <li class = {classStyle}><div className={astStyle}>หน้าหลัก</div></li>
-                    <li class = {classStyle}><div className='current-ast'><div class = 'paddy'>เกี่ยวกับ</div></div></li>
+                    <li class = {classStyle}><div className={astStyle}>เกี่ยวกับ</div></li>
                     <li class = {classStyle}><div className={astStyle}>ซื้อขาย</div></li>
                     <li class = {classStyle}><div className={astStyle}>บริจาค</div></li>
-                    <li class = {classStyle}><div className='current-ast'><div class = 'paddy'>เกี่ยวกับ</div></div></li>
+                    <li class = {classStyle}><div className='current-ast'><div class = 'paddy'>ติดต่อเรา</div></div></li>
 
 
                     <li class = 'menu-header logo button'><button class = 'a-center' href='#'><img class ='bell-icon' src={Bell_icon_src}/></button></li>
@@ -63,7 +59,7 @@ const Home2 = ()=> {
             </nav>
             <div className= 'sizePane'>
             
-            {/* ------------------เกี่ยวกับ--------------- */}
+            {/* ------------------ติดต่อเรา--------------- */}
             <div className = 'pageStyle'> 
                 <div class='Topic'>
                     <img class='aboutTopic-bg' src={about_background_src}></img>
@@ -71,14 +67,62 @@ const Home2 = ()=> {
                         <p class='aboutTopic-text'>ติดต่อเรา</p>
                     </div>
                 </div>
+            {/* ---------------------address abd Contract------------------ */}
+                <div className = 'addressContractBox'>
+                
+                <div className = 'addressContractWrap'>
                 <div className = 'addressBox'>
-                    <h1>ที่อยู่</h1>
+                    <h1 className = 'headText'>ที่อยู่</h1>
+                    <div className = 'textBox'>
+                        <img className='logoAddress' src={Bell_icon_src}></img>
+                        <div>
+                            <p className = 'textAddress'>เลขที่ 1 ซอยฉลองกรุง 1 เขตลาดกระบัง กรุงเทพมหานคร ประเทศไทย 10520</p>
+                            
+                        </div>
+                        
+                    </div>
+                    <div className = 'textBox'>
+                        <img className='logoAddress' src={Bell_icon_src}></img>
+                        <p className = 'textAddress'>xxx-xxx-xxxx</p>
+                    </div>
+                    <div className = 'textBox'>
+                        <img className='logoAddress' src={Bell_icon_src}></img>
+                        <p className = 'textAddress'>petMe@gmail.com</p>
+                    </div>
 
                 </div>
 
-                
-                
-                
+                <div className = 'contractBox'>
+                        <h1 className = 'headText'>ติดต่อเรา</h1>
+                        <div className = 'inputLayer'>
+                            <input id="name" type="text" class ='inputTextB'placeholder="ชื่อจริง-นามสกุล" maxlength="40"></input>
+                            <input type="text" class ='inputTextB'placeholder="อีเมล"></input>
+                        </div>
+                        <div className = 'inputLayer'>
+                            <input type="text" class ='inputTextB'placeholder="เบอร์โทรศัพท์" maxlength="10" pattern="[0-9]*"></input>
+                            <input type="text" class ='inputTextB'placeholder="หัวข้อ"></input>
+                        </div>
+                        <textarea type="text" class ='inputTextBLong'placeholder="ข้อความ" maxlength="100"></textarea>
+                        <button className='buttonSumit'>ส่ง</button>
+                </div>
+                </div>
+                </div>
+                {/* --------google map------- */}
+                <div style={{height: '300px', width: '100%' }}>
+                    <GoogleMapReact
+                        bootstrapURLKeys={{ key:'AIzaSyArHsxljBsVldhX-DXQWFenKBhvW9K05DE'}}
+                        defaultCenter={{ lat: 13.727732292542216, lng: 100.77078854813402 }}
+                        defaultZoom={18}
+                    >
+                    <div lat={13.727732292542216} lng={100.77078854813402}>
+                        <div className = 'pointPane'>
+                            <img className='logoAddress' src={Bottom_logo_icon}></img>
+                            <div className = 'pointText'>PetMe</div>
+                        </div>
+                        
+                    </div>
+                    </GoogleMapReact>
+                </div>
             </div>
             {/* -----------the END-------------- */}
 

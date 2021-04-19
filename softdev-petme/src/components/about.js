@@ -39,7 +39,7 @@ library.add(fas, fab, far);
 
 const Home2 = ()=> {
 
-    const [classStyle, setClassStyle] = useState('menu-header')
+    const [classStyle, setClassStyle] = useState('menu-header active')
     const [astStyle, setAstStyle] = useState('ast')
 
     const [currentPage,setCurrentPage] = useState('home')
